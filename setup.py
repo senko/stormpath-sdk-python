@@ -1,24 +1,14 @@
 __author__ = 'ecrisostomo'
 
-from distutils.core import setup
-from pkgutil import walk_packages
+from setuptools import setup, find_packages
 
 import stormpath
-
-
-def find_packages(path='.', prefix=""):
-    yield prefix
-    prefix = prefix + "."
-    for _, name, is_pkg in walk_packages(path, prefix):
-        if is_pkg:
-            yield name
-
 
 # To install the stormpath library, open a Terminal shell, then run this
 # file by typing:
 #
 # python setup.py install
-REQUIRES = ["httplib2 (>= 0.7)", "unittest2py3k", "PyYAML (>= 3.10)"]
+REQUIRES = ["httplib2>=0.7", "unittest2py3k", "PyYAML>=3.10"]
 
 setup(
     name = "stormpath-sdk",
@@ -28,8 +18,8 @@ setup(
     author_email = "elder@stormpath.com",
     url = "https://github.com/stormpath/stormpath-sdk-python",
     keywords = ["stormpath","authentication"],
-    requires = REQUIRES,
-    packages = list(find_packages(stormpath.__path__, stormpath.__name__)),
+    install_requires = REQUIRES,
+    packages = [p for p in find_packages() if p.startswith(stormpath.__name__)],
     classifiers = [
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
