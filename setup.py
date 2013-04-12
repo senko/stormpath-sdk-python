@@ -1,6 +1,7 @@
 __author__ = 'ecrisostomo'
 
 from setuptools import setup, find_packages
+import sys
 
 import stormpath
 
@@ -8,7 +9,19 @@ import stormpath
 # file by typing:
 #
 # python setup.py install
-REQUIRES = ["httplib2>=0.7", "unittest2py3k", "PyYAML>=3.10"]
+
+if sys.version_info.major == 3:
+    REQUIRES = ["httplib2>=0.7", "unittest2py3k", "PyYAML>=3.10"]
+    classifiers = [
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.2",
+    ]
+else:
+    REQUIRES = ['httplib2>=0.7', 'unittest2', 'PyYAML']
+    classifiers = [
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.7",
+    ]
 
 setup(
     name = "stormpath-sdk",
@@ -25,9 +38,7 @@ setup(
         "Intended Audience :: Developers",
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.2",
+        "Programming Language :: Python" ] + classifiers + [
         "Topic :: Security",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Software Development :: Libraries",
