@@ -5,9 +5,14 @@ import hmac
 import hashlib
 from collections import OrderedDict
 from datetime import datetime
-from urllib.parse import urlparse
 from uuid import uuid4
 from stormpath.util import is_default_port, encode_url, str_query_string
+
+try:
+    from urllib.parse import urlparse
+except ImportError:
+    from urlparse import urlparse
+
 
 class Sauthc1Signer:
 
