@@ -114,6 +114,9 @@ class CollectionResource(Resource):
             self.items_iter = iter(self._get_current_page().items)
             return next(self.items_iter)
 
+    def next(self):
+        return self.__next__()
+
     @property
     def item_type(self):
         """
