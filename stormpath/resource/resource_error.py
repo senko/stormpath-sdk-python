@@ -5,7 +5,7 @@ from stormpath.resource.resource import Resource
 class ResourceError(RuntimeError):
 
     def __init__(self, error):
-        super().__init__(error.message if error else None)
+        super(ResourceError, self).__init__(error.message if error else None)
         self.error = error
 
     @property
@@ -38,7 +38,7 @@ class Error(Resource):
     MORE_INFO = "moreInfo"
 
     def __init__(self, properties):
-        super().__init__(properties=properties)
+        super(Error, self).__init__(properties=properties)
 
     @property
     def status(self):

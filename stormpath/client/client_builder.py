@@ -5,7 +5,7 @@ from stormpath.client import ApiKey, Client
 from stormpath.http import HttpClientRequestExecutor, Request
 from stormpath.util import NestedValueNotFoundError, search_in_dict
 
-class ClientBuilder:
+class ClientBuilder(object):
     """
      A "Builder design pattern":http://en.wikipedia.org/wiki/Builder_pattern implementation used to
      construct {@link Client} instances.

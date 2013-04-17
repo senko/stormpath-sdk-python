@@ -5,11 +5,11 @@ import stormpath
 from stormpath.http import Request, Response
 from stormpath.util import assert_instance
 
-class HttpClientRequestExecutor:
+class HttpClientRequestExecutor(object):
 
     def __init__(self, api_key = None):
         self.api_key = api_key
-        self.http_client = httplib2.Http()
+        self.http_client = httplib2.Http(disable_ssl_certificate_validation=True)
         self.http_client.follow_redirects = False
         self.signer = stormpath.http.Sauthc1Signer()
 

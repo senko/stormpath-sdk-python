@@ -9,13 +9,13 @@ from stormpath.resource import Application
 from stormpath.util import assert_instance, assert_true, assert_not_none
 
 
-class ClientApplication:
+class ClientApplication(object):
 
     def __init__(self, client, application):
         self.client = client
         self.application = application
 
-class ClientApplicationBuilder:
+class ClientApplicationBuilder(object):
     """
     A "Builder design pattern":http://en.wikipedia.org/wiki/Builder_pattern implementation similar to
     the *ClientBuilder*, but focused on single-application interaction with Stormpath.
