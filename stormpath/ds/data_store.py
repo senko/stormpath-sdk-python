@@ -10,7 +10,7 @@ from stormpath.resource import Resource
 from stormpath.resource import Error, ResourceError
 
 
-class DataStore:
+class DataStore(object):
 
     DEFAULT_API_VERSION = 1
     DEFAULT_SERVER_HOST = "api.stormpath.com"
@@ -134,7 +134,7 @@ class DataStore:
         return {href_prop_name : resource_properties[href_prop_name]}
 
 
-class ResourceFactory:
+class ResourceFactory(object):
 
     def __init__(self, data_store):
 

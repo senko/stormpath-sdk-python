@@ -2,7 +2,7 @@ __author__ = 'ecrisostomo'
 
 from stormpath.util import assert_not_none
 
-class Request:
+class Request(object):
 
     def __init__(self, http_method, href, body = None, http_headers = None, query_string = None):
 
@@ -35,7 +35,7 @@ class Request:
         if self.body is not None:
             self.http_headers['Content-Length'] = str(len(self.body))
 
-class Response:
+class Response(object):
 
     def __init__(self, http_status, content_type, body):
         self.http_status = http_status

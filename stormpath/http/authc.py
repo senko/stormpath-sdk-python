@@ -14,7 +14,7 @@ except ImportError:
     from urlparse import urlparse
 
 
-class Sauthc1Signer:
+class Sauthc1Signer(object):
 
     HOST_HEADER = "Host"
     AUTHORIZATION_HEADER = "Authorization"

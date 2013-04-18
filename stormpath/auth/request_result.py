@@ -4,7 +4,7 @@ import stormpath
 
 from stormpath.resource.resource import Resource
 
-class UsernamePasswordRequest:
+class UsernamePasswordRequest(object):
 
     def __init__(self, username, password, host = None):
         self.principals = username

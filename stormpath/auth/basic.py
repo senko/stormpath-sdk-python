@@ -24,7 +24,7 @@ class BasicLoginAttempt(Resource):
     def value(self, value):
         self._set_property_(self.VALUE, value)
 
-class BasicAuthenticator:
+class BasicAuthenticator(object):
 
     def __init__(self, data_store):
         assert_instance(data_store, stormpath.ds.DataStore, 'data_store')

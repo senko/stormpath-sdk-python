@@ -2,7 +2,7 @@ __author__ = 'ecrisostomo'
 
 from stormpath.resource.status import status_dict
 
-class Resource:
+class Resource(object):
 
     HREF_PROP_NAME = 'href'
 
@@ -147,7 +147,7 @@ class CollectionResource(Resource):
     def _to_resource_(self, clazz, properties):
         return self.data_store.instantiate(clazz, properties)
 
-class Page:
+class Page(object):
 
     def __init__(self, offset, limit, items):
         self.offset = offset

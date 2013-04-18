@@ -5,7 +5,7 @@ import stormpath
 from stormpath.http import Request, Response
 from stormpath.util import assert_instance
 
-class HttpClientRequestExecutor:
+class HttpClientRequestExecutor(object):
 
     def __init__(self, api_key = None):
         self.api_key = api_key
