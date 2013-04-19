@@ -1,6 +1,9 @@
 __author__ = 'ecrisostomo'
 
-import urllib
+try:
+    from urllib import parse
+except ImportError:
+    import urlparse as parse
 
 import yaml
 
@@ -279,7 +282,7 @@ class ClientApplicationBuilder(object):
         assert_true(len(pair) == 2, 'application_href userInfo segment must consist' +
                                     ' of the following format: apiKeyId:apiKeySecret')
 
-        properties = {'apiKey.id' : urllib.parse.unquote(pair[0]), 'apiKey.secret' : urllib.parse.unquote(pair[1])}
+        properties = {'apiKey.id' : parse.unquote(pair[0]), 'apiKey.secret' : parse.unquote(pair[1])}
 
         return yaml.dump(properties)
 
